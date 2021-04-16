@@ -18,7 +18,7 @@ $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider
                )
 );
 
-$app->get('/db/', function() use($app) {
+$app->get('/', function() use($app) {
     $st = $app['pdo']->prepare('SELECT version()');
     $st->execute();
   
