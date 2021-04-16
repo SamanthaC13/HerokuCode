@@ -1,8 +1,8 @@
 <?php
 
-echo "Hello world from the Invisible Plug Game! We are rocking now!";
+echo "Hello world from the Invisible Plug Game! We are rocking now!\n";
 
-echo "Trying to get to the database?????";
+echo "Trying to get to the database?????\n";
 
 $dbopts = parse_url(getenv('DATABASE_URL'));
 $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider('pdo'),
@@ -33,6 +33,6 @@ $app->get('/db/', function() use($app) {
     ));
   });
   
-
+echo "Ater the database code\n";
 ?>
 
