@@ -2,6 +2,8 @@
 
 echo "Hello world from the Invisible Plug Game! We are rocking now!";
 
+echo "Trying to get to the database?????";
+
 $dbopts = parse_url(getenv('DATABASE_URL'));
 $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider('pdo'),
                array(
