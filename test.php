@@ -2,7 +2,7 @@
 
 print "Hello world from the Invisible Plug Game! We are rocking now!\n";
 
-print "Trying to get to the database?????\n";
+print "This is the test.php file\n";
 
 # This function reads your DATABASE_URL config var and returns a connection
 # string suitable for pg_connect. Put this in your app.
@@ -26,6 +26,6 @@ if (!pg_num_rows($result)) {
 }
 print "\n";
 
-print "Ater the database code\n";
+print "After the database code\n";
 ?>
 

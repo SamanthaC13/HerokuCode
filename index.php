@@ -26,6 +26,6 @@ if (!pg_num_rows($result)) {
 }
 print "\n";
 
-print "Ater the database code\n";
+print "After the database code\n";
 ?>
 
