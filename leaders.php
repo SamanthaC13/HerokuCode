@@ -21,7 +21,7 @@ order by s.BestTime");
 
 #print "<pre>\n";
 if (!pg_num_rows($result)) {
-  print("\n");
+  print("No results\n");
 } else {
   while ($row = pg_fetch_row($result)) { print("$row[0]\n"); }
 }
