@@ -1,6 +1,6 @@
 <?php
 
-print "Leader Board Information\r\n";
+print "Leader Board Information<br>";
 
 # This function reads your DATABASE_URL config var and returns a connection
 # string suitable for pg_connect. 
