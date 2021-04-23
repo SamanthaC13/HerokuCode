@@ -1,6 +1,6 @@
 <?php
 
-print "Leader Board Information\n";
+print "Leader Board Information\r\n";
 
 # This function reads your DATABASE_URL config var and returns a connection
 # string suitable for pg_connect. 
@@ -30,7 +30,7 @@ print(pg_result_error($result));
 if (!pg_num_rows($result)) {
   print("No results\n");
 } else {
-  while ($row = pg_fetch_row($result)) { print("$row[0]\n"); }
+  while ($row = pg_fetch_row($result)) { print("$row[0]\r\n"); }
 }
 #print "\n";
 
