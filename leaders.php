@@ -14,7 +14,7 @@ $pg_conn = pg_connect(pg_connection_string_from_database_url());
 
 # Here we query for the leaders
 #$sql = "select u.Username, s.RewardLevel, s.BestTime, s.WinLossRatio from UserStats s join Users u on (s.Userid=u.Userid) order by s.BestTime";
-$sql = "select u.Username from Users u";
+$sql = "select u.Username from public.Users u";
 #$sql = "SELECT relname FROM pg_stat_user_tables WHERE schemaname='public'";
 print($sql);
 
