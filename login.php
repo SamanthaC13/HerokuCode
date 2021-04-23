@@ -32,6 +32,8 @@ if (!pg_num_rows($result)) {
   print("2 - User not found<br>");
 } else 
 {
+  print($row[1]);
+  print("<br>");
   if ($row[1]==$pass)
   {
     print("1 - Login successful<br>");
