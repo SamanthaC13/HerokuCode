@@ -13,11 +13,12 @@ function pg_connection_string_from_database_url() {
 $pg_conn = pg_connect(pg_connection_string_from_database_url());
 
 # Here we query for the leaders
-#$sql = "select u.Username, s.RewardLevel, s.BestTime, s.WinLossRatio from UserStats s join Users u on (s.Userid=u.Userid) order by s.BestTime";
-$sql = 'select u."Username" from "Users" u';
+$sql = 'select u."Username", s."RewardLevel", s."BestTime", s."WinLossRatio"
+from "UserStats" s join "Users" u on (s."Userid"=u."Userid")
+order by s."BestTime"';
+#$sql = 'select u."Username" from "Users" u';
 #$sql = "SELECT relname FROM pg_stat_user_tables WHERE schemaname='public'";
 #print($sql);
-
 
 #$result = pg_query($pg_conn, $sql);
 pg_send_query($pg_conn, $sql);
@@ -30,7 +31,7 @@ print(pg_result_error($result));
 if (!pg_num_rows($result)) {
   print("No results\n");
 } else {
-  while ($row = pg_fetch_row($result)) { print("$row[0]\r\n"); }
+  while ($row = pg_fetch_row($result)) { print("$row[0]<br>"); }
 }
 #print "\n";
 
