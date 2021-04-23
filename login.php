@@ -13,8 +13,8 @@ function pg_connection_string_from_database_url() {
 $pg_conn = pg_connect(pg_connection_string_from_database_url());
 
 # Here we get parameters from the URL
-$user = $_POST['username'];
-$pass = $_POST['password'];
+$user = $_GET['username'];
+$pass = $_GET['password'];
 print($user);
 print("<br>");
 
