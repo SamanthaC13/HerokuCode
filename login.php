@@ -15,6 +15,8 @@ $pg_conn = pg_connect(pg_connection_string_from_database_url());
 # Here we get parameters from the URL
 $user = $_POST['username'];
 $pass = $_POST['password'];
+print($user);
+print("<br>");
 
 # Here we check if user exists
 $sql = 'select u."Username", u."Password" from "Users" u where u."Username" = "'.$user.'"';
