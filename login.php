@@ -36,6 +36,8 @@ if (!pg_num_rows($result)) {
   $row = pg_fetch_row($result);
   print($row[1]);
   print("<br>");
+  print($pass);
+  print("<br>");
   if (strcmp($row[1],$pass)==0)
   {
     print("1 - Login successful<br>");
