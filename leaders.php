@@ -31,7 +31,7 @@ print(pg_result_error($result));
 if (!pg_num_rows($result)) {
   print("No results\n");
 } else {
-  while ($row = pg_fetch_row($result)) { print("$row[0]<br>"); }
+  while ($row = pg_fetch_row($result)) { print("$row[0],$row[1],$row[2],$row[3]<br>"); }
 }
 #print "\n";
 
