@@ -1,8 +1,6 @@
 <?php
 
-print "Hello world from the Invisible Plug Game! We are rocking now!\n";
-
-print "This is the test.php file\n";
+print "Leader Board Information\n";
 
 # This function reads your DATABASE_URL config var and returns a connection
 # string suitable for pg_connect. 
