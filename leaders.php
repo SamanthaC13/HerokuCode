@@ -22,7 +22,7 @@ print($sql);
 
 $result = pg_query($pg_conn, $sql);
 
-print($sql);
+print(pg_num_rows($result));
 
 #print "<pre>\n";
 if (!pg_num_rows($result)) {
