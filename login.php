@@ -36,7 +36,11 @@ if (!pg_num_rows($result)) {
   $row = pg_fetch_row($result);
   print($row[1]);
   print("<br>");
+  print(strlen($row[1]));
+  print("<br>");
   print($pass);
+  print("<br>");
+  print(strlen($pass));
   print("<br>");
   if (strcmp($row[1],$pass)==0)
   {
