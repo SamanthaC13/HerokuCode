@@ -1,6 +1,6 @@
 <?php
 
-print "Leader Board Information<br>";
+#print "Leader Board Information<br>";
 
 # This function reads your DATABASE_URL config var and returns a connection
 # string suitable for pg_connect. 
@@ -15,7 +15,7 @@ $pg_conn = pg_connect(pg_connection_string_from_database_url());
 # Here we query for the leaders
 $sql = 'select u."Username", s."RewardLevel", s."BestTime", s."WinLossRatio"
 from "UserStats" s join "Users" u on (s."Userid"=u."Userid")
-order by s."BestTime"';
+order by s."BestTime", s."WinLossRatio" desc';
 #$sql = 'select u."Username" from "Users" u';
 #$sql = "SELECT relname FROM pg_stat_user_tables WHERE schemaname='public'";
 #print($sql);
@@ -35,6 +35,6 @@ if (!pg_num_rows($result)) {
 }
 #print "\n";
 
-print "After the database code\n";
+#print "After the database code\n";
 ?>
 
