@@ -1,6 +1,6 @@
 <?php
 
-print "Login Link<br>";
+#print "Login Link<br>";
 
 # This function reads your DATABASE_URL config var and returns a connection
 # string suitable for pg_connect. 
@@ -15,10 +15,6 @@ $pg_conn = pg_connect(pg_connection_string_from_database_url());
 # Here we get parameters from the URL
 $user = $_GET['username'];
 $pass = $_GET['password'];
-print($user);
-print("<br>");
-print($pass);
-print("<br>");
 
 # Here we check if user exists
 $sql = 'select u."Username", trim(u."Password") "Password" from "Users" u where u."Username" = \''.$user.'\'';
@@ -34,14 +30,6 @@ if (!pg_num_rows($result)) {
 } else 
 {
   $row = pg_fetch_row($result);
-  print($row[1]);
-  print("<br>");
-  print(strlen($row[1]));
-  print("<br>");
-  print($pass);
-  print("<br>");
-  print(strlen($pass));
-  print("<br>");
   if (strcmp($row[1],$pass)==0)
   {
     print("1 - Login successful<br>");
@@ -51,6 +39,6 @@ if (!pg_num_rows($result)) {
   }
 }
 
-print "After the database code<br>";
+#print "After the database code<br>";
 ?>
 
