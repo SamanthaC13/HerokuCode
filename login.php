@@ -17,6 +17,8 @@ $user = $_GET['username'];
 $pass = $_GET['password'];
 print($user);
 print("<br>");
+print($pass);
+print("<br>");
 
 # Here we check if user exists
 $sql = 'select u."Username", u."Password" from "Users" u where u."Username" = "'.$user.'"';
