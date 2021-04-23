@@ -21,7 +21,7 @@ print($sql);
 
 #$result = pg_query($pg_conn, $sql);
 pg_send_query($pg_conn, $sql);
-$result = pg_get_result($pg_conn):
+$result = pg_get_result($pg_conn);
 print(pg_result_error($result));
 
 print(pg_num_rows($result));
