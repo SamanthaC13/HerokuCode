@@ -21,7 +21,7 @@ print($pass);
 print("<br>");
 
 # Here we check if user exists
-$sql = 'select u."Username", u."Password" from "Users" u where u."Username" = "'.$user.'"';
+$sql = 'select u."Username", u."Password" from "Users" u where u."Username" = \''.$user.'\'';
 print($sql);
 
 pg_send_query($pg_conn, $sql);
