@@ -18,8 +18,8 @@ $pass = $_GET['password'];
 
 # Here we check if user exists
 $sql = 'select u."Username", trim(u."Password") "Password" from "Users" u where u."Username" = \''.$user.'\'';
-print($sql);
-print("<br>");
+#print($sql);
+#print("<br>");
 
 pg_send_query($pg_conn, $sql);
 $result = pg_get_result($pg_conn);
