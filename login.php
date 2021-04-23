@@ -33,7 +33,8 @@ if (!pg_num_rows($result)) {
   print("2 - User not found<br>");
 } else 
 {
-  print($row[0]);
+  $row = pg_fetch_row($result);
+  print($row[1]);
   print("<br>");
   if ($row[1]==$pass)
   {
