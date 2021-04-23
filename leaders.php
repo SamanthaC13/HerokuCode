@@ -15,14 +15,14 @@ $pg_conn = pg_connect(pg_connection_string_from_database_url());
 # Here we query for the leaders
 $sql = "select u.Username, s.RewardLevel, s.BestTime, s.WinLossRatio
 from UserStats s join Users u on (s.Userid=u.Userid)
-order by s.BestTime"
+order by s.BestTime";
 
-print($sql)
+print($sql);
 
 
 $result = pg_query($pg_conn, $sql);
 
-print($sql)
+print($sql);
 
 #print "<pre>\n";
 if (!pg_num_rows($result)) {
