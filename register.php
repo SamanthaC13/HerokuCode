@@ -30,6 +30,16 @@ pg_send_query($pg_conn, $sql);
 $result = pg_get_result($pg_conn);
 print(pg_result_error($result));
 
+$sql = 'INSERT INTO public."UserStats"
+select 0,null,0.0,0,"Userid"
+from "Users"
+where "Username" = \''.$user'\'';
+print($sql);
+print("<br>");
+
+pg_send_query($pg_conn, $sql);
+$result = pg_get_result($pg_conn);
+print(pg_result_error($result));
 
 print "After the database code<br>";
 ?>

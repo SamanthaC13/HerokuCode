@@ -13,7 +13,7 @@ function pg_connection_string_from_database_url() {
 $pg_conn = pg_connect(pg_connection_string_from_database_url());
 
 # Here we query for the leaders
-$sql = 'select u."Username", s."RewardLevel", s."BestTime", s."WinLossRatio"
+$sql = 'select trim(u."Username") "Username", s."RewardLevel", s."BestTime", s."WinLossRatio"
 from "UserStats" s join "Users" u on (s."Userid"=u."Userid")
 order by s."BestTime", s."WinLossRatio" desc';
 #$sql = 'select u."Username" from "Users" u';
