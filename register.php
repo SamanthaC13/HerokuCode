@@ -33,7 +33,7 @@ print(pg_result_error($result));
 $sql = 'INSERT INTO public."UserStats"
 select 0,null,0.0,0,"Userid"
 from "Users"
-where "Username" = \''.$user'\'';
+where "Username" = \''.$user.'\'';
 print($sql);
 print("<br>");
 
