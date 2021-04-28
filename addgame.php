@@ -1,6 +1,6 @@
 <?php
 
-print "Add Game Link<br>";
+#print "Add Game Link<br>";
 
 # This function reads your DATABASE_URL config var and returns a connection
 # string suitable for pg_connect. 
@@ -24,8 +24,8 @@ $sql = 'INSERT INTO public."GameLog"
 select '.$win.',\''.$dt.'\','.$gamelen.',"Userid"
 from "Users" where "Username" = \''.$user.'\'';
 
-print($sql);
-print("<br>");
+#print($sql);
+#print("<br>");
 
 pg_send_query($pg_conn, $sql);
 $result = pg_get_result($pg_conn);
@@ -48,14 +48,14 @@ set "NumberOfGamesPlayed" = (select count(*) from "GameLog" join "Users"
 from "Users"
 where "Username" = \''.$user.'\'';
 
-print($sql);
-print("<br>");
+#print($sql);
+#print("<br>");
 
 pg_send_query($pg_conn, $sql);
 $result = pg_get_result($pg_conn);
 print(pg_result_error($result));
 print("SUCESSFUL-Game Added");
 
-print "After the database code<br>";
+#print "After the database code<br>";
 ?>
 
