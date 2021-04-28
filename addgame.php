@@ -31,17 +31,30 @@ pg_send_query($pg_conn, $sql);
 $result = pg_get_result($pg_conn);
 print(pg_result_error($result));
 
- # $sql = 'INSERT INTO public."UserStats"
- # select 0,null,0.0,0,"Userid"
- # from "Users"
- # where "Username" = \''.$user.'\'';
-  #print($sql);
-  #print("<br>");
+$sql =' update "UserStats"
+set "NumberOfGamesPlayed" = (select count(*) from "GameLog" join "Users"
+								on ("GameLog"."Userid" = "Users"."Userid")
+								where "Username" = \''.$user.'\')
+	,"WinLossRatio" = (select count(*) from "GameLog" join "Users"
+								on ("GameLog"."Userid" = "Users"."Userid")
+								where "Username" = \''.$user.'\' and "WinOrLose"=1)
+						*1.0/
+						(select count(*) from "GameLog" join "Users"
+								on ("GameLog"."Userid" = "Users"."Userid")
+								where "Username" = \''.$user.'\')
+	,"BestTime" = (select min("GameTime") from "GameLog" join "Users"
+								on ("GameLog"."Userid" = "Users"."Userid")
+								where "Username" = \''.$user.'\')
+from "Users"
+where "Username" = \''.$user.'\'';
 
-  #pg_send_query($pg_conn, $sql);
- # $result = pg_get_result($pg_conn);
-#  print(pg_result_error($result));
- # print("SUCESSFUL-User Added");
+print($sql);
+print("<br>");
+
+pg_send_query($pg_conn, $sql);
+$result = pg_get_result($pg_conn);
+print(pg_result_error($result));
+print("SUCESSFUL-Game Added");
 
 print "After the database code<br>";
 ?>
