@@ -1,6 +1,6 @@
 <?php
 
-print "Register Link<br>";
+#print "Register Link<br>";
 
 # This function reads your DATABASE_URL config var and returns a connection
 # string suitable for pg_connect. 
@@ -27,16 +27,15 @@ $result = pg_get_result($pg_conn);
 print(pg_result_error($result));
 
 if (pg_num_rows($result)) {
-  print("Duplicate Username");
+  print("ERROR-Duplicate Username");
 } else {
-  print("No results\n");
   # Here we add user to database
   #$sql = 'select u."Username", trim(u."Password") "Password" from "Users" u where u."Username" = \''.$user.'\'';
   $sql = 'INSERT INTO public."Users"(
     "Password", "Username", "FirstName", "LastName")
     VALUES (\''.$pass.'\', \''.$user.'\', \''.$first.'\', \''.$last.'\')';
-  print($sql);
-  print("<br>");
+  #print($sql);
+  #print("<br>");
 
   pg_send_query($pg_conn, $sql);
   $result = pg_get_result($pg_conn);
@@ -46,13 +45,14 @@ if (pg_num_rows($result)) {
   select 0,null,0.0,0,"Userid"
   from "Users"
   where "Username" = \''.$user.'\'';
-  print($sql);
-  print("<br>");
+  #print($sql);
+  #print("<br>");
 
   pg_send_query($pg_conn, $sql);
   $result = pg_get_result($pg_conn);
   print(pg_result_error($result));
+  print("SUCESSFUL-User Added");
 }
-print "After the database code<br>";
+#print "After the database code<br>";
 ?>
 
