@@ -21,7 +21,7 @@ $gamelen = $_GET['gamelen'];
 # Here we add user to database
 #$sql = 'select u."Username", trim(u."Password") "Password" from "Users" u where u."Username" = \''.$user.'\'';
 $sql = 'INSERT INTO public."GameLog"
-select .$win,\''.$dt.'\',.$gamelen.,"Userid"
+select .$win.,\''.$dt.'\',.$gamelen.,"Userid"
 from "Users" where "Username" = \''.$user.'\'';
 
 print($sql);
