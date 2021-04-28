@@ -18,29 +18,41 @@ $pass = $_GET['password'];
 $first = $_GET['firstname'];
 $last = $_GET['lastname'];
 
-# Here we add user to database
-#$sql = 'select u."Username", trim(u."Password") "Password" from "Users" u where u."Username" = \''.$user.'\'';
-$sql = 'INSERT INTO public."Users"(
-  "Password", "Username", "FirstName", "LastName")
-  VALUES (\''.$pass.'\', \''.$user.'\', \''.$first.'\', \''.$last.'\')';
-print($sql);
-print("<br>");
+#Here we are going to check for duplicate names 
+$sql = 'select u."Username" from "Users" u WHERE u."Username"=\''.$user.'\'';
+#print($sql);
 
 pg_send_query($pg_conn, $sql);
 $result = pg_get_result($pg_conn);
 print(pg_result_error($result));
 
-$sql = 'INSERT INTO public."UserStats"
-select 0,null,0.0,0,"Userid"
-from "Users"
-where "Username" = \''.$user.'\'';
-print($sql);
-print("<br>");
+if (pg_num_rows($result)) {
+  print("Duplicate Username");
+} else {
+  print("No results\n");
+  # Here we add user to database
+  #$sql = 'select u."Username", trim(u."Password") "Password" from "Users" u where u."Username" = \''.$user.'\'';
+  $sql = 'INSERT INTO public."Users"(
+    "Password", "Username", "FirstName", "LastName")
+    VALUES (\''.$pass.'\', \''.$user.'\', \''.$first.'\', \''.$last.'\')';
+  print($sql);
+  print("<br>");
 
-pg_send_query($pg_conn, $sql);
-$result = pg_get_result($pg_conn);
-print(pg_result_error($result));
+  pg_send_query($pg_conn, $sql);
+  $result = pg_get_result($pg_conn);
+  print(pg_result_error($result));
 
+  $sql = 'INSERT INTO public."UserStats"
+  select 0,null,0.0,0,"Userid"
+  from "Users"
+  where "Username" = \''.$user.'\'';
+  print($sql);
+  print("<br>");
+
+  pg_send_query($pg_conn, $sql);
+  $result = pg_get_result($pg_conn);
+  print(pg_result_error($result));
+}
 print "After the database code<br>";
 ?>
 
