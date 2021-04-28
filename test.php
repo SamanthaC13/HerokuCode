@@ -1,6 +1,6 @@
 <?php
 
-print "Hello world from the Invisible Plug Game! We are rocking now!\n";
+print "Hello world from the Invisible Plug Game! Everything is Fine!\n";
 
 print "This is the test.php file\n";
 
